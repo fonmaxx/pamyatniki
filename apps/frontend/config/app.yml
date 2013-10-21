@@ -1,0 +1,12 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+#all:
+all:
+  max_objects_on_page: 21
+  max_objects_on_sub_cat: 6
+  objects_on_cat_sub_cat: 9
+  max_objects_on_homepage: 3
+  default_icon: sample.png
+  default_img: default.jpg

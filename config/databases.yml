@@ -1,0 +1,15 @@
+test:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=localhost;dbname=granit_test'
+      username: root
+      password: nigerniger
+
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=localhost;dbname=granit'
+      username: root
+      password: nigerniger

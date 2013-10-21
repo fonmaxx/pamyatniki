@@ -1,0 +1,34 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+photo:
+  url:     /:cat/:sub_cat/:obj_id/:photo
+  class:   sfDoctrineRoute
+  param:   { module: category, action: show }
+  options: { model: GranitPhoto, type: object, method: showPhoto }
+
+object:
+  url:     /:cat/:sub_cat/:obj_id
+  class:   sfDoctrineRoute
+  param:   { module: object, action: showObject }
+  options: { model: GranitObject, type: object, method: showObject }
+
+
+sub_category:
+  url:     /:cat/:translit
+  class:   sfDoctrineRoute
+  param:   { module: category, action: subCat }
+  options: { model: GranitSub_cat, type: object, method: getSubCat }
+
+category:
+  url:     /:translit
+  class:   sfDoctrineRoute
+  param:   { module: category, action: cat}
+  options: { model: GranitCat, type: object, method: getCats }
+
+homepage:
+  url:   /
+  param: { module: category, action: index }
+
+

@@ -1,0 +1,22 @@
+GranitProduction:
+<?php for ($i = 1; $i <= 16; $i++): ?>
+  i_<?php echo $i;?>:
+    obj_id:  <?php echo $i."\n";?>
+    name:         памятник№<?php echo $i."\n";?>
+    material:     габро
+    complect:     тумбочка, стелла, цветники
+    price:        1240 грн
+    icon:      <?php echo ($i-1)*4+1;?>
+
+    <?php echo "\n";?>
+<?php endfor ?>
+<?php for ($i = 22; $i <= 65; $i++): ?>
+  i_<?php echo $i;?>:
+    obj_id:  <?php echo $i."\n";?>
+    name:         памятник№<?php echo $i."\n";?>
+    material:     габро
+    complect:     тумбочка, стелла, цветники
+    price:        1240 грн
+    icon:
+    <?php echo "\n";?>
+<?php endfor ?>

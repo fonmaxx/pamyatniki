@@ -1,0 +1,66 @@
+GranitCat:
+  columns:
+    name:         { type: string(255) }
+    shortcart:     { type: text, notnull: true }
+  actAs:
+    Translit:
+      feilds: name
+
+GranitSub_cat:
+  columns:
+    cat_id:  { type: integer, notnull: true }
+    name:         { type: string(255) }
+  actAs:
+    Translit:
+      feilds: name
+  relations:
+    GranitCat: {local: cat_id, foreign: id, foreignAlias: Sub_cat }
+
+GranitObject:
+  columns:
+    sub_cat_id:  { type: integer, notnull: true }
+    active:  { type: boolean, notnull: true, default: false }
+  relations:
+    GranitSub_cat: { onDelete: CASCADE, local: sub_cat_id, foreign: id, foreignAlias: Obj }
+
+GranitProduction:
+  actAs:
+    Timestampable: ~
+    Translit:
+      feilds: name
+  columns:
+    obj_id:  { type: integer, notnull: true }
+    name:         { type: string(255) }
+    icon:      { type: string(255) }
+    material:     { type: string(255) }
+    complect:     { type: text }
+    price:        {type: string(255)}
+  relations:
+    GranitObject: { onDelete: CASCADE, local: obj_id, foreign: id, foreignAlias: Prod }
+
+GranitInformation:
+  actAs:
+    Timestampable: ~
+    Translit:
+      feilds: name
+  columns:
+    obj_id:  { type: integer, notnull: true }
+    title:      { type: string(255), notnull: true }
+    shortcart:     { type: text, notnull: true }
+    icon:         { type: string(255) }
+    content:     { type: text, notnull: true }
+  relations:
+    GranitObject: { onDelete: CASCADE, local: obj_id, foreign: id,foreignAlias: Inf }
+
+GranitPhoto:
+  columns:
+    obj_id:  { type: integer, notnull: true }
+  relations:
+    GranitObject: {  onDelete: CASCADE, local: obj_id, foreign: id ,foreignAlias: Photo}
+
+GranitMetas:
+  columns:
+    obj_id:  { type: integer, notnull: true }
+    content:         { type: string(255) }
+  relations:
+    GranitObject: {  onDelete: CASCADE, local: obj_id, foreign: id,foreignAlias: Metas }

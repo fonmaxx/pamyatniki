@@ -1,0 +1,44 @@
+GranitObject:
+<?php $j=1;?>
+<?php for ($i = 1; $i <= 16; $i++): ?>
+  i_<?php echo $i;?>:
+    sub_cat_id: <?php echo $j;?>
+<?php if(($i%4)==0):?>
+<?php $j+=1; ?>
+<?php endif ?>
+<?php echo "\n"; ?>
+<?php endfor ?>
+
+<?php $j=5;?>
+<?php for ($i = 17; $i <= 21; $i++): ?>
+  i_<?php echo $i;?>:
+    sub_cat_id: <?php echo $j;?>
+<?php if(($i%19)==0):?>
+<?php $j+=1; ?>
+<?php endif ?>
+<?php echo "\n"; ?>
+<?php endfor ?>
+
+<?php $j=1;?>
+<?php $n=1;?>
+<?php for ($i = 22; $i <= 66; $i++): ?>
+  i_<?php echo $i;?>:
+    sub_cat_id: <?php echo $j;?>
+<?php if(($n%11)==0):?>
+<?php $j+=1; ?>
+<?php endif ?>
+<?php echo "\n"; ?>
+<?php $n++;?>
+<?php endfor ?>
+
+<?php $j=5;?>
+<?php $n=1;?>
+<?php for ($i = 67; $i <= 80; $i++): ?>
+  i_<?php echo $i;?>:
+    sub_cat_id: <?php echo $j;?>
+<?php if(($n%7)==0):?>
+<?php $j+=1; ?>
+<?php endif ?>
+<?php echo "\n"; ?>
+<?php $n++;?>
+<?php endfor ?>
