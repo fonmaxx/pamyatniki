@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>главная страница</title>
-<?php include_javascripts() ?>
 <?php include_stylesheets() ?>
+<?php if (has_slot('metas')){include_slot('metas');} ?>
 </head>
 
 <body>
@@ -54,5 +54,7 @@
   </div>
 </div>
 </div>
+<?php if (has_slot('gallery')){ include_slot('gallery');} ?>
+<?php include_javascripts();?>
 </body>
 </html>

@@ -30,7 +30,7 @@ $options=array('obj_id'=>1);
 //$sub=Doctrine_Core::getTable('GranitSub_cat')->getSubCat($options);
 $obj=Doctrine_Core::getTable('GranitObject')->showObject($options);
 
-		print_r($obj->Prod->getFirst()->getPrice());
+		print_r($obj->toArray());
 		//$sub_cat->Cat=$q->copy(false);
 		//print_r($q->toArray());
     	//$q->setName(null);

@@ -1,18 +1,5 @@
 <div class="big_photo">
-   <?php if($object->Photo->count())
-		{?>
-   		<a href="<?php echo url_for('photo',array(
-   				'cat'=>,
-   				'sub_cat'=>,
-   				'obj_id'=>
-   				'photo'=>
-   				); ?>">
-   			<img src="<?php echo url_for($object->getIcon());?>" alt="<?php echo $object->getName();?>" />
-   		</a>
-   		<?php }
-   		else {?>
    		<img src="<?php echo url_for($object->getIcon());?>" alt="<?php echo $object->getName();?>" />
-   		<?php }?>
 </div>
 <table  class="fetures">
         <tr>
@@ -37,10 +24,10 @@
 </table>
 <?php if($object->Photo->count())
 		{?>
-		<div class="small_photo">
+		<div id='links' class="small_photo">
       	<?php foreach($object->Photo as $photo)
       	{ ?>
-      		<a href="<?php echo url_for();?>"
+      		<a href="<?php echo url_for($photo->getPhoto());?>" data-gallery>
       		<img src="<?php echo url_for($photo->getIcon());?>" alt="<?php echo $object->getName();?>" />
       		</a>
       	<?php
