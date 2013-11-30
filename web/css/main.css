@@ -52,8 +52,10 @@ html,body {
 	display: inline-block;
 	width: 19%;
 	text-align: center;
-	font-size: 14px;
+	font-size: 20px;
 	font-weight: bold;
+	height: 100%;
+	
 }
 .top_menu:visited {
 	color: #AE4B5D;
@@ -68,7 +70,6 @@ html,body {
 	cursor: pointer;
 	background-color: #b51a25;
 }
-
 #footer {
 	position: absolute;
 	clear:both;
@@ -115,6 +116,7 @@ html,body {
 l {
 	font-family: Aniron;
 	color: #ae4b5d;
+	text-transform: capitalize;
 }
 
 
@@ -178,12 +180,14 @@ l {
 	list-style-type: none;
 	font-weight: bolder;
 	color: #FFF;
+	height: 100%;
+	line-height: 30px;
 }
 .list {
 	list-style-type: none;
 	display: block;
 	clear: both;
-	overflow: auto;
+
 }
 .content p {
 	font-size: 18px;
@@ -195,7 +199,7 @@ l {
 }
 .item {
 	float: left;
-	height: 200px;
+	height: 220px;
 	width: 200px;
 	margin-top: 10px;
 	margin-right: 0px;
@@ -204,10 +208,13 @@ l {
 	-moz-box-shadow: -3px -3px 3px #CFD3D9;
 	-webkit-box-shadow: -3px -3px 3px #CFD3D9;
 	box-shadow: -3px -3px 3px #CFD3D9;
-
-
+	
 
     filter: progid:DXImageTransform.Microsoft.Shadow(color='#CFD3D9', Direction=145, Strength=3);
+}
+.item img
+{
+	height: 200px;
 }
 .content .list li a {
 	text-decoration: none;
@@ -371,10 +378,13 @@ overflow: auto;
 	color: #666;
 	text-decoration: none;
 }
+#back span a:hover
+{
+	color: #CFD3D9;	
+}
 .sub_cat
 {
 clear: both;
-overflow: auto;
 }
 .inf_full
 {

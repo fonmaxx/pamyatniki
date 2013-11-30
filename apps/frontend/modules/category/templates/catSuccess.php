@@ -19,7 +19,7 @@
         			<p><?php echo $sub_cat->getName();?></p>
         		</a>
 					<?php
-					include_partial('prod', array('objects' => $objects));
+					include_partial('prod', array('objects' => $objects,'cat'=>$cat,'sub_cat'=>$sub_cat));
 				}
 				elseif($objects->getLast()->Inf->count())
 				{
@@ -30,10 +30,6 @@
 				if($objects->count()==sfConfig::get('app_objects_on_cat_sub_cat'))
 				{
 				?>
-				<a class="all" href="<?php echo url_for('sub_category',array(
-						'cat'=>$cat->getTranslit(),
-						'translit'=>$sub_cat->getTranslit()
-						),true); ?>">показать все...</a>
 				<?php
 				}?>
         	</div>

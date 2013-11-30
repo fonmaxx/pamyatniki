@@ -7,7 +7,7 @@
 		<div id="links" class="small_photo">
       		<?php foreach($object->Photo as $photo)
       		{ ?>
-      		<a href="<?php echo url_for($photo->getPhoto(); ?>" data-gallery>
+      		<a href="<?php echo url_for($photo->getPhoto()); ?>" data-gallery>
       			<img src="<?php echo url_for($photo->getIcon());?>" alt="<?php echo $object->getName();?>" />
       		</a>
       		<?php

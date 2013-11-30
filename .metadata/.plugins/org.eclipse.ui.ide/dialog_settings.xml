@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="installedFeatures">
+		<item value="org.eclipse.cvs:1.2.0.v20100427-7B77FKs8sF7B77SDX4GW85"/>
+		<item value="org.eclipse.dltk.core.index:2.0.0.v20100616-2015-6-19oA5855S5U27J_B"/>
+		<item value="org.eclipse.dltk.core:2.0.0.v20100518-1923-7L-0EAAoOVMSUaEAZ8w_"/>
+		<item value="org.eclipse.emf.ecore:2.6.1.v20100914-1218"/>
+		<item value="org.eclipse.epp.mpc:1.0.0.v20100611-0430"/>
+		<item value="org.eclipse.epp.package.javascript.feature:1.3.0.20100618-0515"/>
+		<item value="org.eclipse.help:1.2.0.v20100427-7e7jEKFEx2XlnZinYPtgz03"/>
+		<item value="org.eclipse.php:2.2.1.v20101001-2300-7L7J1F8NcJTJTJJT9cmJJ"/>
+		<item value="org.eclipse.platform:3.6.0.v20100602-9gF78GpqFt6trOGhL60z0oEx3fz-JKNwxPY"/>
+		<item value="org.eclipse.rcp:3.6.0.v20100519-9OArFKvFtsd7WLUKh-DcYTS"/>
+		<item value="org.eclipse.wst.common.fproj:3.2.3.v201101121727-377AC8s73543C6H4A5H"/>
+		<item value="org.eclipse.wst.jsdt.feature:1.2.3.v201102160540-7C78FGUF9JgLWNO2UCNqfa"/>
+		<item value="org.eclipse.wst.web_ui.feature:3.2.3.v201102160541-7O7CFbWEMf84qYjGDyP3DNEwcgFU"/>
+		<item value="org.eclipse.wst.xml.xpath2.processor.feature:1.1.6.v201101212357-67K3BgJ9DJAPEUCSKQ"/>
+		<item value="org.eclipse.wst.xml_ui.feature:3.2.3.v201102160550-7H7AFUWDxumQJOi9ghcTb5YgkwEZ"/>
+		<item value="org.eclipse.wst.xsl.feature:1.1.3.v201102102045-7S7WFASFIpS-21NUD58xfPVDTLR"/>
+	</list>
+</section>

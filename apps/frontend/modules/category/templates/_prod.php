@@ -13,3 +13,9 @@ foreach($objects as $object)
 </div>
 <?php
 }?>
+<?php if(isset($cat)&&isset($sub_cat)){?>
+<a class="all" href="<?php echo url_for('sub_category',array(
+						'cat'=>$cat->getTranslit(),
+						'translit'=>$sub_cat->getTranslit()
+						),true); ?>">показать все...</a>
+<?php }?>						

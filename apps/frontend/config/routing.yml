@@ -2,6 +2,9 @@
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
 # default rules
+contacts:
+  url:	/kontakty
+  param:	{ module: category, action: kontakty}
 photo:
   url:     /:cat/:sub_cat/:obj_id/:photo
   class:   sfDoctrineRoute
@@ -13,7 +16,6 @@ object:
   class:   sfDoctrineRoute
   param:   { module: object, action: showObject }
   options: { model: GranitObject, type: object, method: showObject }
-
 
 sub_category:
   url:     /:cat/:translit

@@ -12,15 +12,8 @@ class photoActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->granit_sub_infs = Doctrine_Core::getTable('GranitSub_inf')
+    $this->photos = Doctrine_Core::getTable('GranitPhoto')
       ->createQuery('a')
       ->execute();
   }
-
-  public function executeShow(sfWebRequest $request)
-  {
-    $this->granit_sub_inf = Doctrine_Core::getTable('GranitSub_inf')->find(array($request->getParameter('id')));
-    $this->forward404Unless($this->granit_sub_inf);
-  }
-
  }

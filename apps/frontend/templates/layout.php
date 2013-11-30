@@ -21,12 +21,12 @@
   <?php
   $cat_list=Doctrine_Core::getTable('GranitCat')->getCats();?>
   <div id="top_menu">
-  	<span class="top_menu"><a href="<?php echo url_for('homepage',array(),true)?>">Главная</a></span>
+  	<span class="top_menu"><?php echo link_to("главная",url_for('homepage',array(),true));?></span>
   <?php
   	foreach($cat_list as $cat){?>
   	<span class="top_menu"><a href="<?php echo url_for('category',$cat,true)?>"><?php echo $cat->getName();?></a></span>
     <?php }?>
-    <span class="top_menu"><a href="#">Контакты</a></span>
+    <span class="top_menu"><a href="<?php echo url_for('@contacts')?>">Контакты</a></span>
   </div>
   <div id="main">
     <div class="content">

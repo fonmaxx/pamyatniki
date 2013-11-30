@@ -38,9 +38,16 @@
            	 	<a class ="nav" href="<?php echo url_for('sub_category',array(
 						'cat'=>$sub_cat->GranitCat->getTranslit(),
 						'translit'=>$sub_cat->getTranslit()
-						),true).'?page='.$pager->getPreviousPage(); ?>"><?php echo image_tag('prev.gif','size=16x16');?>предыдущая</a>
+						),true).'?page='.$pager->getPreviousPage(); ?>">
+						<?php echo image_tag('prev.gif','size=16x16');?>предыдущая
+				</a>
              	 <?php echo $pager->getPage();?>
-             	<a class="nav" href=""><?php echo image_tag('next.gif','size=16x16');?>следующая</a>
+             	<a class="nav" href="<?php echo url_for('sub_category',array(
+						'cat'=>$sub_cat->GranitCat->getTranslit(),
+						'translit'=>$sub_cat->getTranslit()
+						),true).'?page='.$pager->getNextPage(); ?>">
+						<?php echo image_tag('next.gif','size=16x16');?>следующая
+				</a>
              	<a href="<?php echo url_for('sub_category',array(
 						'cat'=>$sub_cat->GranitCat->getTranslit(),
 						'translit'=>$sub_cat->getTranslit()

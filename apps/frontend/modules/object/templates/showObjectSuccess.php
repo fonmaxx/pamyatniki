@@ -54,5 +54,6 @@
 use_javascript("jquery-1.10.2.min.js");
 use_javascript("jquery.blueimp-gallery.min.js");
 use_javascript("bootstrap-image-gallery.min.js");
+use_javascript("preload.js");
 end_slot();
 ?>

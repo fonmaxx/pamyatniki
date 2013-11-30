@@ -29,4 +29,9 @@ class categoryActions extends sfActions
   {
   	$this->cat=$this->getRoute()->getObject();
   }
+  public function executeKontakty(sfWebRequest $request)
+  {
+  
+  }
+  
 }
