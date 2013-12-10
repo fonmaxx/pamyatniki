@@ -19,4 +19,3 @@
         ksmers@ukr.net
         </li>
       </ul>
-      <a href="#">макс</a>

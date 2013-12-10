@@ -24,7 +24,7 @@ class GranitCatTable extends Doctrine_Table
     	if($param)
     	{
 
-    		$q->where('c.translit=?',$param['translit']);
+    		$q->andWhere('c.translit=?',$param['translit']);
     	}
     		return $q->execute();
     }

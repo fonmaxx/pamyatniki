@@ -5,11 +5,6 @@
 contacts:
   url:	/kontakty
   param:	{ module: category, action: kontakty}
-photo:
-  url:     /:cat/:sub_cat/:obj_id/:photo
-  class:   sfDoctrineRoute
-  param:   { module: category, action: show }
-  options: { model: GranitPhoto, type: object, method: showPhoto }
 
 object:
   url:     /:cat/:sub_cat/:obj_id

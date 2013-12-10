@@ -6,19 +6,17 @@
         	foreach($cat->Sub_cat as $sub_cat)
         	{?>
 			<li>
-        	<div class="sub_cat">
+        	<div class="sub_cat" id="<?php echo $sub_cat->getTranslit(); ?>">
 				<?php
 				$objects=$sub_cat->getObjects(sfConfig::get('app_objects_on_cat_sub_cat'));
 				if($objects->getLast()->Prod->count())
 				{
 					?>
-				<a class="" href="<?php echo url_for('sub_category',array(
+				<a class="sub_cat_link" href="<?php echo url_for('sub_category',array(
 						'cat'=>$cat->getTranslit(),
 						'translit'=>$sub_cat->getTranslit()
-						),true); ?>">
-        			<p><?php echo $sub_cat->getName();?></p>
-        		</a>
-					<?php
+						),true); ?>"><?php echo $sub_cat->getName();?></a>
+<?php
 					include_partial('prod', array('objects' => $objects,'cat'=>$cat,'sub_cat'=>$sub_cat));
 				}
 				elseif($objects->getLast()->Inf->count())

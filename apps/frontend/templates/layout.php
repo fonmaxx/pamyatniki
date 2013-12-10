@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>главная страница</title>
 <?php include_stylesheets() ?>
 <?php if (has_slot('metas')){include_slot('metas');} ?>
@@ -21,12 +22,18 @@
   <?php
   $cat_list=Doctrine_Core::getTable('GranitCat')->getCats();?>
   <div id="top_menu">
-  	<span class="top_menu"><?php echo link_to("главная",url_for('homepage',array(),true));?></span>
+  	<span class="top_menu">
+  	<?php echo link_to("главная",url_for('homepage',array(),true));?>
+  	</span>
   <?php
   	foreach($cat_list as $cat){?>
-  	<span class="top_menu"><a href="<?php echo url_for('category',$cat,true)?>"><?php echo $cat->getName();?></a></span>
+  	<span class="top_menu">
+  	<a href="<?php echo url_for('category',$cat,true)?>"><?php echo $cat->getName();?></a>
+  	</span>
     <?php }?>
-    <span class="top_menu"><a href="<?php echo url_for('@contacts')?>">Контакты</a></span>
+    <span class="top_menu">
+    <a href="<?php echo url_for('@contacts')?>">контакты</a>
+    </span>
   </div>
   <div id="main">
     <div class="content">

@@ -19,4 +19,17 @@ class GranitSub_cat extends BaseGranitSub_cat
 		->execute();
 		return $q;
 	}
+	public function getObjectsType()
+	{
+		$q= Doctrine_Core::getTable('GranitObject')->ObjectsForSubCatQuery(1,$this->getId())
+		->execute();
+		if($q->getLast()->Prod->count())
+		{
+			return "prod";
+		}
+		else
+		{
+			return "inf";
+		}
+	}	
 }

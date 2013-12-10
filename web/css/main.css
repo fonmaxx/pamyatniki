@@ -189,12 +189,13 @@ l {
 	clear: both;
 
 }
-.content p {
+.sub_cat_link, .inf_link {
 	font-size: 18px;
 	font-weight: bold;
 	color: #666;
+	display: block;
 }
-.content p:hover {
+.sub_cat_link:hover, .inf_link:hover {
 	color: #444;
 }
 .item {

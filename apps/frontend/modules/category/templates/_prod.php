@@ -1,7 +1,10 @@
 <?php
+$n=0;
 foreach($objects as $object)
-{?>
-<div class="item">
+{
+$n++;
+?>
+<div id="<?php echo "item".$n; ?>" class="item">
    <a href="<?php echo url_for('object', array(
 			'cat'=>$object->GranitSub_cat->GranitCat->getTranslit(),
 			'sub_cat'=>$object->GranitSub_cat->getTranslit(),
