@@ -1,12 +1,18 @@
+   	<div class="category">  
    	  <h2 class="cat"><l><?php echo $cat->getCat_f();?></l><?php echo $cat->getCat_b();?>:</h2>
         <span class="subscribe"><?php echo $cat->getShortcart();?></span>
 		<ul class="list">
 
         	<?php
+        	$count=1;
         	foreach($cat->Sub_cat as $sub_cat)
-        	{?>
+        	{
+        	$class= ($count%2)?'odd_sub':'even_sub';
+        	$count++;
+        	$class= ($cat->Sub_cat->count()<2)?'even_sub':$class;
+        	?>
 			<li>
-        	<div class="sub_cat" id="<?php echo $sub_cat->getTranslit(); ?>">
+        	<div class="sub_cat <?php echo $class; ?>" id="<?php echo $sub_cat->getTranslit(); ?>">
 				<?php
 				$objects=$sub_cat->getObjects(sfConfig::get('app_objects_on_cat_sub_cat'));
 				if($objects->getLast()->Prod->count())
@@ -32,6 +38,11 @@
 				}?>
         	</div>
         	</li>
+        	<div class="line"></div>
 			<?php
         	}?>
 	  	</ul>
+	 </div>
+<?php slot('title')?>
+<?php echo $cat->getName();?>
+<?php end_slot();?>	  	

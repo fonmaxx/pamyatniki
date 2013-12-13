@@ -1,36 +1,43 @@
-<div class="big_photo">
-   		<img src="<?php echo url_for($object->getIcon());?>" alt="<?php echo $object->getName();?>" />
+<div>
+	<div class="item prod_item">
+		<img src="<?php echo url_for($object->getIcon());?>" alt="<?php echo $object->getName();?>" />
+	</div>
+	<div class="item fetures">
+		<div class="fet_cont">
+			<div class="cat"><l>Х</l>арактеристики</div>
+			<ul class="fet_text">
+				<li>
+					Материал: <?php echo $object->Prod->getFirst()->getMaterial();?>
+				</li>
+				<li>
+					Цена: <?php echo $object->Prod->getFirst()->getPrice();?>
+				</li>
+			</ul>
+			<div class="cat"><l>К</l>омплектация</div>
+			<ul class="fet_text">
+			<?php foreach($object->Prod->getFirst()->Complect as $complect){?>	
+				<li>
+					<?php echo $complect->getName();?>
+				</li>
+			<?php }?>	
+			</ul>
+		</div>
+	</div>
 </div>
-<table  class="fetures">
-        <tr>
-          <th colspan=2> Характеристики </th>
-        </tr>
-        <tr>
-          <td> материал </td>
-          <td> <?php echo $object->Prod->getFirst()->getMaterial();?> </td>
-        </tr>
-        <tr>
-          <td> цена </td>
-          <td> <?php echo $object->Prod->getFirst()->getPrice();?> </td>
-        </tr>
-        <tr>
-          <th height="33" colspan=2> Комплектация </th>
-        </tr>
-        <tr>
-          <td colspan=2>
-          <span class="complect"><?php echo $object->Prod->getFirst()->getComplect();?></span>
-          </td>
-        </tr>
-</table>
 <?php if($object->Photo->count())
 		{?>
-		<div id='links' class="small_photo">
+<div class="gall_feed">
       	<?php foreach($object->Photo as $photo)
-      	{ ?>
-      		<a href="<?php echo url_for($photo->getPhoto());?>" data-gallery>
+      	{ ?>	
+	<div id="links" class="item small_photo">
+		<a href="<?php echo url_for($photo->getPhoto());?>" data-gallery>
       		<img src="<?php echo url_for($photo->getIcon());?>" alt="<?php echo $object->getName();?>" />
-      		</a>
-      	<?php
-     	 }?>
-		</div>
+      	</a>
+	</div>
+		<?php
+		 }?>
+</div>
 <?php }?>
+<?php slot('title')?>
+<?php echo $object->getName();?>
+<?php end_slot();?>

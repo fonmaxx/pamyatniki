@@ -42,7 +42,7 @@ GranitInformation:
   actAs:
     Timestampable: ~
     Translit:
-      feilds: name
+      feilds: title
   columns:
     obj_id:  { type: integer, notnull: true }
     title:      { type: string(255), notnull: true }
@@ -64,3 +64,15 @@ GranitMetas:
     content:         { type: string(255) }
   relations:
     GranitObject: {  onDelete: CASCADE, local: obj_id, foreign: id,foreignAlias: Metas }
+    
+GranitProd_complect:
+  columns:
+   prod_id:  { type: integer, notnull: true }
+   complect_id:  { type: integer, notnull: true }
+  relations:
+   GranitComplect: {  onDelete: CASCADE, local: complect_id, foreign: id }
+   GranitProduction: {  onDelete: CASCADE, local: prod_id, foreign: id,foreignAlias: Complect}
+ 
+GranitComplect:
+  columns:
+   name:   { type: string(255) }    

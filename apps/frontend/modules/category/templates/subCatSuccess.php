@@ -1,9 +1,14 @@
-<h2 class="cat"><l><?php echo Support::firstLetter($sub_cat->getName());?></l><?php echo Support::exceptFirstLetter($sub_cat->getName());?>:</h2>
+<div>
+	<a class="back" alt="назад к продукции" href="<?php
+	echo url_for('category',array('translit'=>$sub_cat->GranitCat->getTranslit()));	
+	?>" >назад</a>
+</div>
+<div class="sub_cat full_sub">
+	<h2 class="cat"><l><?php echo Support::firstLetter($sub_cat->getName());?></l><?php echo Support::exceptFirstLetter($sub_cat->getName());?>:</h2>	
+		<div>
 		<ul class="list">
 			<li>
-        	<div class="sub_cat">
 				<?php
-				$objects=$pager->getResults();
 				if($objects->getLast()->Prod->count())
 				{
 					include_partial('prod', array('objects' => $objects));
@@ -13,45 +18,70 @@
 					include_partial('inf_full', array('objects' => $objects));
 				}
 				?>
-        	</div>
         	</li>
 	  	</ul>
-			<div class="pagination_desc">
-            <span>
-            всего <strong><?php echo count($pager);?></strong> , страница
-            <?php if ($pager->haveToPaginate())
-            { ?>
-            <strong><?php echo $pager->getPage().'/'.$pager->getLastPage();?></strong>
-            <?php }
-            else
-            {?>
-            1/1
-            <?php }?>
-            </span>
-            <?php if ($pager->haveToPaginate())
-            { ?>
-            <div class="pagination">
-            	<a href="<?php echo url_for('sub_category',array(
-						'cat'=>$sub_cat->GranitCat->getTranslit(),
-						'translit'=>$sub_cat->getTranslit()
-						),true).'?page=1'; ?>">первая</a>
-           	 	<a class ="nav" href="<?php echo url_for('sub_category',array(
+	  	</div>
+			<div class="pagination">
+				<a class ="nav_href" href="<?php echo url_for('sub_category',array(
 						'cat'=>$sub_cat->GranitCat->getTranslit(),
 						'translit'=>$sub_cat->getTranslit()
 						),true).'?page='.$pager->getPreviousPage(); ?>">
-						<?php echo image_tag('prev.gif','size=16x16');?>предыдущая
+					<div class="nav_left">
+					</div>
 				</a>
-             	 <?php echo $pager->getPage();?>
-             	<a class="nav" href="<?php echo url_for('sub_category',array(
+				<div class="nav_body">
+					<div class="nav_set1">
+						<div class="nav_set2"><?php
+						$page=$pager->getPage();
+						if($l_num)
+						{
+							while($l_num)
+							{
+								$curr_page=$page-$l_num;
+								$l_num--;
+								?>
+								<a class ="nav_href" href="<?php echo url_for('sub_category',array(
+						'cat'=>$sub_cat->GranitCat->getTranslit(),
+						'translit'=>$sub_cat->getTranslit()
+						),true).'?page='.$curr_page; ?>">
+						<div class="nav_button"><?php echo $curr_page;?></div>
+						</a>
+								<?php
+							}
+						}
+						?>
+							<div class="nav_button nav_active"><?php echo $page;?></div>
+							<?php 
+							if($r_num)
+							{
+								$curr_page=$page;
+								while($r_num)
+								{
+									$curr_page++;
+									$r_num--;
+									?>
+								<a class ="nav_href" href="<?php echo url_for('sub_category',array(
+						'cat'=>$sub_cat->GranitCat->getTranslit(),
+						'translit'=>$sub_cat->getTranslit()
+						),true).'?page='.$curr_page; ?>">
+						<div class="nav_button"><?php echo $curr_page;?></div>
+						</a>
+								<?php
+								}
+							}
+							?>
+						</div>
+					</div>	
+				</div>
+				<a class ="nav_href" href="<?php echo url_for('sub_category',array(
 						'cat'=>$sub_cat->GranitCat->getTranslit(),
 						'translit'=>$sub_cat->getTranslit()
 						),true).'?page='.$pager->getNextPage(); ?>">
-						<?php echo image_tag('next.gif','size=16x16');?>следующая
-				</a>
-             	<a href="<?php echo url_for('sub_category',array(
-						'cat'=>$sub_cat->GranitCat->getTranslit(),
-						'translit'=>$sub_cat->getTranslit()
-						),true).'?page='.$pager->getLastPage(); ?>">последняя</a>
-        	</div>
-        	<?php }?>
-        	</div>
+					<div class="nav_right">				
+					</div>
+				</a>	
+			</div>	
+        </div>
+<?php slot('title')?>
+<?php echo $sub_cat->getName();?>
+<?php end_slot();?>        

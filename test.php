@@ -26,10 +26,10 @@ $conn->setListener($profiler);
 //$q=Doctrine_Core::getTable('GranitCat')->getCats()->getFirst();
 	//	$sub_cat=$q->Sub_cat[4];
 		//$res=$sub_cat->getObjects();
-//$options=array('obj_id'=>1);
+$options=array('obj_id'=>1);
 //$sub=Doctrine_Core::getTable('GranitSub_cat')->getSubCat($options);
-//$obj=Doctrine_Core::getTable('GranitObject')->showObject($options);
-
+$obj=Doctrine_Core::getTable('GranitObject')->showObject($options);
+print_r($obj->getFirst()->Prod->getFirst()->Complect->getFirst()->getName());
 		//print_r(sfConfig::get('sf_test_dir').'\bootstrap\doctrine.php');
 		
 
@@ -49,8 +49,4 @@ $conn->setListener($profiler);
 */
 //$category=Doctrine_Core::getTable('GranitCat')->getCats(array('translit'=>'produkciya'));
 //print_r($category->toArray());
-$maxSubCat=2;
-$objects=5;
-$page_num= ($objects%$maxSubCat)?intval($objects/$maxSubCat)+1:intval($objects/$maxSubCat);
-echo $page_num;
 ?>

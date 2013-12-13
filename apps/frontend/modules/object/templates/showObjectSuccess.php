@@ -1,10 +1,10 @@
 <?php use_helper('Text', 'JavascriptBase') ?>
-<div id="back"><span >
-<a href="<?php echo url_for('sub_category',array(
+<div>
+<a class="back" href="<?php echo url_for('sub_category',array(
 		'cat'=>$object->GranitSub_cat->GranitCat->getTranslit(),
 		'translit'=>$object->GranitSub_cat->getTranslit()
-		));?>">вернуться</a>
-</span></div>
+		));?>">назад в категорию</a>
+</div>
       <?php
       if($object->Prod->count())
       	{

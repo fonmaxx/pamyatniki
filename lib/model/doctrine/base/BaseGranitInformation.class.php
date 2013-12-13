@@ -68,7 +68,7 @@ abstract class BaseGranitInformation extends sfDoctrineRecord
 
         $timestampable0 = new Doctrine_Template_Timestampable();
         $translit0 = new Doctrine_Template_Translit(array(
-             'feilds' => 'name',
+             'feilds' => 'title',
              ));
         $this->actAs($timestampable0);
         $this->actAs($translit0);

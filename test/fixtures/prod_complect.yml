@@ -1,0 +1,11 @@
+GranitProd_complect:
+<?php $n=0;?>
+<?php for ($i = 1; $i <= 60; $i++): ?>
+<?php for ($j = 1; $j <= 3; $j++):?>
+<?php $n++;?>
+  i_<?php echo $n;?>:
+   prod_id:  <?php echo $i."\n";?>
+   complect_id:   <?php echo $j."\n";?>
+<?php echo "\n";?>
+<?php endfor ?>
+<?php endfor ?>

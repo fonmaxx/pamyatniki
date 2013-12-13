@@ -2,7 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>главная страница</title>
+<title>
+<?php include_slot('title','главная страница'); ?>
+</title>
 <?php include_stylesheets() ?>
 <?php if (has_slot('metas')){include_slot('metas');} ?>
 </head>
@@ -35,6 +37,7 @@
     <a href="<?php echo url_for('@contacts')?>">контакты</a>
     </span>
   </div>
+  <div class="top_shadow"></div>
   <div id="main">
     <div class="content">
  	 	<?php echo $sf_content ?>

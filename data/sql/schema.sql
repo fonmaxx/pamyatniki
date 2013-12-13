@@ -1,13 +1,17 @@
 CREATE TABLE granit_cat (id BIGINT AUTO_INCREMENT, name VARCHAR(255), shortcart text NOT NULL, translit VARCHAR(255), UNIQUE INDEX granit_cat_translit_idx (translit), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE granit_complect (id BIGINT AUTO_INCREMENT, name VARCHAR(255), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE granit_information (id BIGINT AUTO_INCREMENT, obj_id BIGINT NOT NULL, title VARCHAR(255) NOT NULL, shortcart text NOT NULL, icon VARCHAR(255), content text NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, translit VARCHAR(255), UNIQUE INDEX granit_information_translit_idx (translit), INDEX obj_id_idx (obj_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE granit_metas (id BIGINT AUTO_INCREMENT, obj_id BIGINT NOT NULL, content VARCHAR(255), INDEX obj_id_idx (obj_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE granit_object (id BIGINT AUTO_INCREMENT, sub_cat_id BIGINT NOT NULL, active TINYINT(1) DEFAULT '0' NOT NULL, INDEX sub_cat_id_idx (sub_cat_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE granit_photo (id BIGINT AUTO_INCREMENT, obj_id BIGINT NOT NULL, INDEX obj_id_idx (obj_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE granit_prod_complect (id BIGINT AUTO_INCREMENT, prod_id BIGINT NOT NULL, complect_id BIGINT NOT NULL, INDEX complect_id_idx (complect_id), INDEX prod_id_idx (prod_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE granit_production (id BIGINT AUTO_INCREMENT, obj_id BIGINT NOT NULL, name VARCHAR(255), icon VARCHAR(255), material VARCHAR(255), complect text, price VARCHAR(255), created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, translit VARCHAR(255), UNIQUE INDEX granit_production_translit_idx (translit), INDEX obj_id_idx (obj_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE granit_sub_cat (id BIGINT AUTO_INCREMENT, cat_id BIGINT NOT NULL, name VARCHAR(255), translit VARCHAR(255), UNIQUE INDEX granit_sub_cat_translit_idx (translit), INDEX cat_id_idx (cat_id), PRIMARY KEY(id)) ENGINE = INNODB;
 ALTER TABLE granit_information ADD CONSTRAINT granit_information_obj_id_granit_object_id FOREIGN KEY (obj_id) REFERENCES granit_object(id) ON DELETE CASCADE;
 ALTER TABLE granit_metas ADD CONSTRAINT granit_metas_obj_id_granit_object_id FOREIGN KEY (obj_id) REFERENCES granit_object(id) ON DELETE CASCADE;
 ALTER TABLE granit_object ADD CONSTRAINT granit_object_sub_cat_id_granit_sub_cat_id FOREIGN KEY (sub_cat_id) REFERENCES granit_sub_cat(id) ON DELETE CASCADE;
 ALTER TABLE granit_photo ADD CONSTRAINT granit_photo_obj_id_granit_object_id FOREIGN KEY (obj_id) REFERENCES granit_object(id) ON DELETE CASCADE;
+ALTER TABLE granit_prod_complect ADD CONSTRAINT granit_prod_complect_prod_id_granit_production_id FOREIGN KEY (prod_id) REFERENCES granit_production(id) ON DELETE CASCADE;
+ALTER TABLE granit_prod_complect ADD CONSTRAINT granit_prod_complect_complect_id_granit_complect_id FOREIGN KEY (complect_id) REFERENCES granit_complect(id) ON DELETE CASCADE;
 ALTER TABLE granit_production ADD CONSTRAINT granit_production_obj_id_granit_object_id FOREIGN KEY (obj_id) REFERENCES granit_object(id) ON DELETE CASCADE;
 ALTER TABLE granit_sub_cat ADD CONSTRAINT granit_sub_cat_cat_id_granit_cat_id FOREIGN KEY (cat_id) REFERENCES granit_cat(id);

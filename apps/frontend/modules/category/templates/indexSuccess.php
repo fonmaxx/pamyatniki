@@ -1,13 +1,19 @@
 <?php foreach($cats as $cat){?>
+   	<div class="category">  
    	  <h2 class="cat"><l><?php echo $cat->getCat_f();?></l><?php echo $cat->getCat_b();?>:</h2>
         <span class="subscribe"><?php echo $cat->getShortcart();?></span>
 		<ul class="list">
 
         	<?php
+        	$count=1;
         	foreach($cat->Sub_cat as $sub_cat)
-        	{?>
+        	{
+        	$class= ($count%2)?'odd_sub':'even_sub';
+        	$count++;
+        	$class= ($cat->Sub_cat->count()<2)?'even_sub':$class;
+        	?>
 			<li>
-        	<div class="sub_cat" id="<?php echo $sub_cat->getTranslit(); ?>">
+        	<div class="sub_cat <?php echo $class; ?>" id="<?php echo $sub_cat->getTranslit(); ?>">
 				<?php
 				$objects=$sub_cat->getObjects(sfConfig::get('app_max_objects_on_homepage'));
 				if($objects->getLast()->Prod->count())
@@ -40,25 +46,17 @@
 			<?php
         	}?>
 	  	</ul>
+	  </div>	
 <?php }?>
+	<div class="category">
 	  <h2 class="cat"><l>К</l>онтакты:</h2>
 	  <span class="subscribe">Мы находимся по следующему адресу: городское кладбище "Дружба"(контактная инфа)
+      <div class="sub_cat">
       </span>
-	  <p>контактные телефоны:</p>
-      <ul>
+      <ul class="list">
     	<li>
-		(097)529 08 90
-    	</li>
-		<li>
-    	(063)327 71 38
-    	</li>
-		<li>
-		(095)899 09 68
+    	<span class="plain_text">Контактные телефоны: (097)529 08 90; (063)327 71 38; (095)899 09 68</span> 
     	</li>
       </ul>
-	  <p>электронный ящик</p>
-	  <ul>
-      	<li>
-        ksmers@ukr.net
-        </li>
-      </ul>
+      </div>		
+     </div> 

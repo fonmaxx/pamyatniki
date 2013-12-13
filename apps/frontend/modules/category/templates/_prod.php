@@ -12,7 +12,6 @@ $n++;
    			),true); ?>">
    	<img src="<?php echo url_for($object->getIcon());?>" alt="<?php echo $object->Prod->getFirst()->getName();?>" />
    </a>
-   <div class="name"><?php echo $object->Prod->getFirst()->getName();?></div>
 </div>
 <?php
 }?>

@@ -22,8 +22,38 @@ class categoryActions extends sfActions
   			sfConfig::get('app_max_objects_on_sub_cat')
   	);
   	$this->pager->setQuery(Doctrine_Core::getTable('GranitObject')->PartialObjectsQuery($this->sub_cat->getId()));
-  	$this->pager->setPage($request->getParameter('page', 1));
+  	$page=$request->getParameter('page', 1);
+  	$this->pager->setPage($page);
   	$this->pager->init();
+  	$this->objects=$this->pager->getResults();
+  	if(!$this->objects->count())
+  	{
+  		$this->forward404("страницы под таким номером не существует");
+  	}  	
+  	$count=$this->pager->getLastPage();
+  	if($count>4)
+  	{
+  		$this->l_num=2;
+  		$this->r_num=2;
+  		$var=4;
+  	}
+  	else 
+  	{
+  		$this->l_num=intval($count/2);
+  		$this->r_num=$this->l_num;
+  		$var=$this->l_num*2;
+  	}	
+  	if(($page+$this->r_num)>$count)
+  	{
+  		$this->r_num=$count-$page;
+  		$this->l_num=$var-$this->r_num;
+  	}
+  	elseif(($page-$this->l_num)<1)
+  	{
+  		$this->l_num=(($page-$this->l_num)<0)?0:$this->l_num-$page;
+  		$this->r_num=$var-$this->l_num;  		
+  	}
+  	
   }
   public function executeCat(sfWebRequest $request)
   {

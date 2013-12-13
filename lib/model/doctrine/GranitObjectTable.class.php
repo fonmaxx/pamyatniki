@@ -31,10 +31,13 @@ class GranitObjectTable extends Doctrine_Table
     }
     public static function FullObjectQuery($param)
     {
-    	$q=self::PartialObjectsQuery()->leftJoin('o.Metas m')
+    	$q=self::PartialObjectsQuery()
+    		->leftJoin('o.Metas m')
     		->leftJoin('o.Photo ph')
     		->leftJoin('o.GranitSub_cat s')
     		->LeftJoin('s.GranitCat c')
+    		->LeftJoin('p.Complect pc')
+    		->LeftJoin('pc.GranitComplect cp')
     		->Where('o.id=?',$param);
     	return $q;
     }

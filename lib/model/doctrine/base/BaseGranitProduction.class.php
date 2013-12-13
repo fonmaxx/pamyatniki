@@ -12,21 +12,24 @@
  * @property text $complect
  * @property string $price
  * @property GranitObject $GranitObject
+ * @property Doctrine_Collection $Complect
  * 
- * @method integer          getObjId()        Returns the current record's "obj_id" value
- * @method string           getName()         Returns the current record's "name" value
- * @method string           getIcon()         Returns the current record's "icon" value
- * @method string           getMaterial()     Returns the current record's "material" value
- * @method text             getComplect()     Returns the current record's "complect" value
- * @method string           getPrice()        Returns the current record's "price" value
- * @method GranitObject     getGranitObject() Returns the current record's "GranitObject" value
- * @method GranitProduction setObjId()        Sets the current record's "obj_id" value
- * @method GranitProduction setName()         Sets the current record's "name" value
- * @method GranitProduction setIcon()         Sets the current record's "icon" value
- * @method GranitProduction setMaterial()     Sets the current record's "material" value
- * @method GranitProduction setComplect()     Sets the current record's "complect" value
- * @method GranitProduction setPrice()        Sets the current record's "price" value
- * @method GranitProduction setGranitObject() Sets the current record's "GranitObject" value
+ * @method integer             getObjId()        Returns the current record's "obj_id" value
+ * @method string              getName()         Returns the current record's "name" value
+ * @method string              getIcon()         Returns the current record's "icon" value
+ * @method string              getMaterial()     Returns the current record's "material" value
+ * @method text                getComplect()     Returns the current record's "complect" value
+ * @method string              getPrice()        Returns the current record's "price" value
+ * @method GranitObject        getGranitObject() Returns the current record's "GranitObject" value
+ * @method Doctrine_Collection getComplect()     Returns the current record's "Complect" collection
+ * @method GranitProduction    setObjId()        Sets the current record's "obj_id" value
+ * @method GranitProduction    setName()         Sets the current record's "name" value
+ * @method GranitProduction    setIcon()         Sets the current record's "icon" value
+ * @method GranitProduction    setMaterial()     Sets the current record's "material" value
+ * @method GranitProduction    setComplect()     Sets the current record's "complect" value
+ * @method GranitProduction    setPrice()        Sets the current record's "price" value
+ * @method GranitProduction    setGranitObject() Sets the current record's "GranitObject" value
+ * @method GranitProduction    setComplect()     Sets the current record's "Complect" collection
  * 
  * @package    granit
  * @subpackage model
@@ -70,6 +73,10 @@ abstract class BaseGranitProduction extends sfDoctrineRecord
              'local' => 'obj_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
+
+        $this->hasMany('GranitProd_complect as Complect', array(
+             'local' => 'id',
+             'foreign' => 'prod_id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable();
         $translit0 = new Doctrine_Template_Translit(array(
