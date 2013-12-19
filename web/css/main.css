@@ -150,10 +150,13 @@ l {
 	list-style-image: url(../images/clock1.png);
 	font-size: 14px;
 	color: #85898f;
-	left: 0px;
-	top: 0px;
-	padding-top: 10px;
-	padding-left: 5px;
+}
+.footer #left li span
+{
+	height: 18px;
+	display: block;
+	line-height: 17px;
+	padding: 10px 0 2px 5px;
 }
 #bot .footer p {
 	font-size: 18px;
@@ -240,20 +243,23 @@ l {
 	text-align: center;
 	margin-top: 10px;
 	margin-right: 100px;
-	margin-bottom: 25px;
+	margin-bottom: 20px;
 	margin-left: 0px;
 	padding: 3px;
 	background-color: #fff;
-	-moz-box-shadow: 1px 10px 11px -8px #aaaaaa;
-	-webkit-box-shadow: 1px 10px 11px -8px #aaaaaa;
-	box-shadow: 1px 10px 11px -8px #aaaaaa;
+	border-right: 0.5px solid #e0e0e0;
+	border-left: 0.2px solid #e6e6e6;
+	border-bottom: 0.5px solid #c5c5c5;
+	-moz-box-shadow: 1px 10px 11px -8px #909090;
+	-webkit-box-shadow: 1px 10px 11px -8px #909090;
+	box-shadow: 1px 10px 11px -8px #909090;
 	
 
-    filter: progid:DXImageTransform.Microsoft.Shadow(color='#aaaaaa', Direction=90, Strength=5);
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#909090', Direction=90, Strength=5);
 }
-.sub_cat .item
+.odd_sub .item
 {
-	margin: 0 25px 50px 50px;
+	border: none;
 }
 .item img
 {
@@ -289,7 +295,7 @@ l {
 	padding: 0px;
 	margin-top: 0px;
 	margin-right: 80px;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	margin-left: 0px;
 }
 .plain_text {
@@ -314,13 +320,6 @@ overflow: auto;
 	display: block;
 	margin: 0 auto;
 	text-align: left;
-}
-.small_photo {
-	width: auto;
-	overflow: auto;
-	text-align: center;
-	width: 750px;
-	margin: 50px auto;
 }
 .fetures {
 	text-align: left;
@@ -358,8 +357,11 @@ color: #53575c;
 border: 1px solid #e0e0e0;
 padding: 14px 0 0 0;
 border-radius: 15px;
-background-color: #e6e6e6;
-
+background: #f1f1f1;
+}
+.full_sub .item
+{
+ margin: 0 25px 50px 50px;
 }
 .full_sub li
 {
@@ -386,10 +388,11 @@ margin: 0 0 30px 0;
 	margin: 30px 0 50px 0;
 	overflow: auto;
 }
-.map{
-	margin: 50px 0 30px 50px;
+#map{
+	margin: 50px auto 50px;
 	padding: 3px;
-	width: 200px;
+	width: 500px;
+	height: 500px;
 	background-color: #fff;
 	-moz-box-shadow: 1px 10px 11px -8px #aaa;
 	-webkit-box-shadow: 1px 10px 11px -8px #aaa;
@@ -498,7 +501,10 @@ margin: 0 0 30px 0;
 }
 .prod_item img
 {
-	width: 530px;
+	
+	height: 530px;
+	width: auto;
+	
 }
 .fetures
 {
@@ -533,23 +539,34 @@ margin: 0 0 30px 0;
 }
 .small_photo a img
 {
-	width: 194px;
+	width: 191px;
 }
 .inf_img
 {
-	width: 350px;
-	height: 350px;
+	width: 550px;
+	height: 550px;
 	display: inline-block;
 	margin: 0 25px 0 50px;
-	padding: 5px;
+	padding: 10px;
 }
 .inf_img img
 {
-	width: 340px;
+	height: 530px;
+	width: auto;
 }
 .information
 {
 	margin: 20px 0 10px 0;
 	padding: 10px 0;
 	font-size: 14px;
+}
+.map_link
+{
+	text-decoration: none;
+	color: #85898F;
+}
+.map_link:hover
+{
+	text-decoration: underline;
+	color: #85898F;
 }

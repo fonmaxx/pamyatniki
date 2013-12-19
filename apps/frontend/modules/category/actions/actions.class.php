@@ -12,6 +12,11 @@ class categoryActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
+    if ($request->isXmlHttpRequest())
+  	{
+    	$this->kont=Doctrine_Core::getTable('GranitKontaktyCat')->getKontakts()->get(3)->Kontakty->getFirst()->getContent();
+  		return $this->renderText($this->kont);
+  	}
   	$this->cats = Doctrine_Core::getTable('GranitCat')->getCats();
   }
   public function executeSubCat(sfWebRequest $request)
@@ -31,29 +36,9 @@ class categoryActions extends sfActions
   		$this->forward404("страницы под таким номером не существует");
   	}  	
   	$count=$this->pager->getLastPage();
-  	if($count>4)
-  	{
-  		$this->l_num=2;
-  		$this->r_num=2;
-  		$var=4;
-  	}
-  	else 
-  	{
-  		$this->l_num=intval($count/2);
-  		$this->r_num=$this->l_num;
-  		$var=$this->l_num*2;
-  	}	
-  	if(($page+$this->r_num)>$count)
-  	{
-  		$this->r_num=$count-$page;
-  		$this->l_num=$var-$this->r_num;
-  	}
-  	elseif(($page-$this->l_num)<1)
-  	{
-  		$this->l_num=(($page-$this->l_num)<0)?0:$this->l_num-$page;
-  		$this->r_num=$var-$this->l_num;  		
-  	}
-  	
+  	$arr=Support::buttonsLimits($page,$count);
+  	$this->r_num=$arr['r_num'];
+  	$this->l_num=$arr['l_num'];  	
   }
   public function executeCat(sfWebRequest $request)
   {
@@ -61,7 +46,7 @@ class categoryActions extends sfActions
   }
   public function executeKontakty(sfWebRequest $request)
   {
-  
+  	$this->kont=Doctrine_Core::getTable('GranitKontaktyCat')->getKontakts();
   }
   
 }

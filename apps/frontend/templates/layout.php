@@ -7,6 +7,7 @@
 </title>
 <?php include_stylesheets() ?>
 <?php if (has_slot('metas')){include_slot('metas');} ?>
+<?php if (has_slot('kontakty')){include_slot('kontakty');} ?>
 </head>
 
 <body>
@@ -49,16 +50,16 @@
     <div class="footer">
     	<p><l>ч</l>асы работы</p>
 		<ul id="left">
-    		<li>ежедневно с 9 до 18</li>
-			<li>без выходных</li>
-			<li>праздники</li>
+    		<li><span>ежедневно с 9 до 18</span></li>
+			<li><span>без выходных</span></li>
+			<li><span>праздники</span></li>
     	</ul>
     </div>
     <div class="footer">
   		<p><l>м</l>естоположение</p>
     	<ul id="right">
-			<li>городское кладбище "дружба"(адрес)</li>
-			<li>показать на карте(гугл мепс)</li>
+			<li>Житомир, Западное шоссе, городское кладбище "дружба"</li>
+			<li><a class="map_link" href="<?php echo url_for('@contacts')?>">показать на карте</a></li>
     	</ul>
     </div>
   </div>

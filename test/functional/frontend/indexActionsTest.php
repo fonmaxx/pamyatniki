@@ -130,3 +130,12 @@ foreach($cats as $cat)
 		$browser->get('/');
 	}
 }
+$browser->info(" \n \n 1.6 map-link is clickable \n ");
+$browser->click("показать на карте");
+	$browser->with('request')->begin()->
+    isParameter('module', 'category')->
+    isParameter('action', 'kontakty')->
+    end();
+    $browser->with('response')->begin()->
+	isStatusCode(200)->
+	end();

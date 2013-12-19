@@ -5,7 +5,7 @@
 contacts:
   url:	/kontakty
   param:	{ module: category, action: kontakty}
-
+  
 object:
   url:     /:cat/:sub_cat/:obj_id
   class:   sfDoctrineRoute

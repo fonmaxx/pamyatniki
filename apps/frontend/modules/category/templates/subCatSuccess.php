@@ -22,7 +22,7 @@
 	  	</ul>
 	  	</div>
 			<div class="pagination">
-				<a class ="nav_href" href="<?php echo url_for('sub_category',array(
+				<a id="left_href" class ="nav_href" href="<?php echo url_for('sub_category',array(
 						'cat'=>$sub_cat->GranitCat->getTranslit(),
 						'translit'=>$sub_cat->getTranslit()
 						),true).'?page='.$pager->getPreviousPage(); ?>">
@@ -40,7 +40,7 @@
 								$curr_page=$page-$l_num;
 								$l_num--;
 								?>
-								<a class ="nav_href" href="<?php echo url_for('sub_category',array(
+								<a id="<?php echo "pag_btn".$curr_page; ?>" class ="nav_href" href="<?php echo url_for('sub_category',array(
 						'cat'=>$sub_cat->GranitCat->getTranslit(),
 						'translit'=>$sub_cat->getTranslit()
 						),true).'?page='.$curr_page; ?>">
@@ -60,7 +60,7 @@
 									$curr_page++;
 									$r_num--;
 									?>
-								<a class ="nav_href" href="<?php echo url_for('sub_category',array(
+								<a id="<?php echo "pag_btn".$curr_page; ?>" class ="nav_href" href="<?php echo url_for('sub_category',array(
 						'cat'=>$sub_cat->GranitCat->getTranslit(),
 						'translit'=>$sub_cat->getTranslit()
 						),true).'?page='.$curr_page; ?>">
@@ -73,7 +73,7 @@
 						</div>
 					</div>	
 				</div>
-				<a class ="nav_href" href="<?php echo url_for('sub_category',array(
+				<a id="right_href" class ="nav_href" href="<?php echo url_for('sub_category',array(
 						'cat'=>$sub_cat->GranitCat->getTranslit(),
 						'translit'=>$sub_cat->getTranslit()
 						),true).'?page='.$pager->getNextPage(); ?>">

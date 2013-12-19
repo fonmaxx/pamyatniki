@@ -10,4 +10,5 @@ class GranitTestFunctional extends sfTestFunctional
   {
   return Doctrine_Core::getTable("GranitCat")->getCats();
   }
+
 }

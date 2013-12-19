@@ -18,7 +18,7 @@ foreach($objects as $object){?>
 			<img src="<?php echo url_for($object->getIcon());?>" alt="<?php echo $object->Inf->getFirst()->getTitle();?>" />
 		</div>
 		<div class="plain_text">
-			<?php echo $object->Inf->getFirst()->getContent();?>
+			<span><?php echo $object->Inf->getFirst()->getContent();?></span>
 		</div>
 	</div>
 	</div>

@@ -8,5 +8,5 @@ all:
   max_objects_on_sub_cat: 6
   objects_on_cat_sub_cat: 9
   max_objects_on_homepage: 3
-  default_icon: sample.png
-  default_img: default.jpg
+  default_icon: sample.jpg
+  default_photo: default.jpg

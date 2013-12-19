@@ -18,7 +18,7 @@ foreach($cats as $category )
 		isStatusCode(200)->
 		end();
 	$n++;	    
-	$browser->info("\n \n 2.".$n." all 5 top menu links from ".$category->getTranslit()." page are clickable \n");        
+	$browser->info("\n \n 2.".$n." all 5 top menu links and map-link from ".$category->getTranslit()." page are clickable \n");        
 	foreach($cats as $cat)
 	{
 		$browser->click($cat->getName());
@@ -48,8 +48,18 @@ foreach($cats as $category )
     	end();
     $browser->with('response')->begin()->
 		isStatusCode(200)->
-		end();
-	$browser->get('/'.$category->getTranslit());	
+		end();			
+	$browser->get('/'.$category->getTranslit());
+	
+	$browser->click("показать на карте");
+	$browser->with('request')->begin()->
+    isParameter('module', 'category')->
+    isParameter('action', 'kontakty')->
+    end();
+    $browser->with('response')->begin()->
+	isStatusCode(200)->
+	end();	
+	$browser->get('/'.$category->getTranslit());
 }
 foreach($cats as $cat)
 {
@@ -155,11 +165,11 @@ foreach($cats as $cat)
 			$j++;
 			$browser->with('response')->begin()->
 			checkElement('#inf_full'.$j.' a',1)->
-			checkElement('#inf_full'.$j.' .plain_text',1)->
-			checkElement('#inf_full'.$j.' .plain_text img',1)->
-			checkElement('#inf_full'.$j.' .plain_text span',1)->
-			checkElement('#inf_full'.$j.' .plain_text span',$object->Inf->getFirst()->getShortcart())->
-			checkElement('#inf_full'.$j.' .plain_text img[src='.$object->getIcon().']',true)->
+			checkElement('#inf_full'.$j.' .inf_item',1)->
+			checkElement('#inf_full'.$j.' .inf_item .item img',1)->
+			checkElement('#inf_full'.$j.' .inf_item .plain_text',1)->
+			checkElement('#inf_full'.$j.' .inf_item .plain_text span',$object->Inf->getFirst()->getContent())->
+			checkElement('#inf_full'.$j.' .inf_item .item img[src='.$object->getIcon().']',true)->
 			end();
 			$browser->click('#inf_full'.$j.' a');
 			$browser->with('request')->begin()->

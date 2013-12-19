@@ -75,4 +75,15 @@ GranitProd_complect:
  
 GranitComplect:
   columns:
-   name:   { type: string(255) }    
+   name:   { type: string(255) } 
+   
+GranitKontaktyCat:
+  columns:
+   name:     { type: string(255) }
+   
+GranitKontakty:
+  columns:
+   kontakty_cat_id:    { type: integer, notnull: true }
+   content: { type: text, notnull: true }
+  relations:
+   GranitKontaktyCat: {  onDelete: CASCADE, local: kontakty_cat_id, foreign: id,foreignAlias: Kontakty}

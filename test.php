@@ -26,27 +26,13 @@ $conn->setListener($profiler);
 //$q=Doctrine_Core::getTable('GranitCat')->getCats()->getFirst();
 	//	$sub_cat=$q->Sub_cat[4];
 		//$res=$sub_cat->getObjects();
-$options=array('obj_id'=>1);
-//$sub=Doctrine_Core::getTable('GranitSub_cat')->getSubCat($options);
-$obj=Doctrine_Core::getTable('GranitObject')->showObject($options);
-print_r($obj->getFirst()->Prod->getFirst()->Complect->getFirst()->getName());
-		//print_r(sfConfig::get('sf_test_dir').'\bootstrap\doctrine.php');
-		
 
-		//$sub_cat->Cat=$q->copy(false);
-		//print_r($q->toArray());
-    	//$q->setName(null);
-		//print_r($q[0]->getCat_b());
-    	//$s=$q[2]->Sub_cat[0]->getObjects(sfConfig::get('app_max_objects_on_homepage'));
-    	//$asd=$s[0]->getIcon();
-		//print_r(url_for('category',$q,true));
-//$s=$q->toArray();
-//print_r(substr('abcd',1));
+//$asd=(Support::img_resize($src,$dest,530,530))?true:false;
 
-/*		foreach ($profiler as $event) {
-			echo "\n \n".$event->getQuery() . "\n";
-		}
-*/
-//$category=Doctrine_Core::getTable('GranitCat')->getCats(array('translit'=>'produkciya'));
-//print_r($category->toArray());
+$src="d:/source/6.jpg";
+$dest=dirname(__FILE__)."/web/images/sample.jpg";
+$icon=dirname(__FILE__)."/web/images/default.jpg";
+Support::img_resize($src,$dest,530,530);
+Support::img_resize($src,$icon,194,194);		
+	
 ?>
