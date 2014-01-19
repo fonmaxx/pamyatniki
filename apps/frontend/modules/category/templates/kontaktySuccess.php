@@ -3,7 +3,6 @@
  * 1		адрес	
  * 2		телефоны
  * 3		электронный адрес
- * 4		геокоординаты
  * */?>
 	  <h2 class="cat"><l>К</l>онтакты:</h2>
 	  <span class="subscribe">Мы находимся по следующему адресу: <?php echo $kont->get(0)->Kontakty->getFirst()->getContent();?>

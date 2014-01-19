@@ -36,7 +36,7 @@ class GranitObjectTable extends Doctrine_Table
     		->leftJoin('o.Photo ph')
     		->leftJoin('o.GranitSub_cat s')
     		->LeftJoin('s.GranitCat c')
-    		->LeftJoin('p.Complect pc')
+    		->LeftJoin('p.GranitProd_complect pc')
     		->LeftJoin('pc.GranitComplect cp')
     		->Where('o.id=?',$param);
     	return $q;

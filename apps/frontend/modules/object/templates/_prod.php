@@ -15,7 +15,7 @@
 			</ul>
 			<div class="cat"><l>К</l>омплектация</div>
 			<ul id="complect" class="fet_text">
-			<?php foreach($object->Prod->getFirst()->Complect as $complect){?>	
+			<?php foreach($object->Prod->getFirst()->GranitProd_complect as $complect){?>	
 				<li>
 					<span><?php echo $complect->getName();?></span>
 				</li>

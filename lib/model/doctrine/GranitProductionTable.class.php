@@ -16,4 +16,21 @@ class GranitProductionTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('GranitProduction');
     }
+    public static function appProdFilter($query,$value)
+    {
+    	 $rootAlias = $query->getRootAlias();
+    	 $query->leftJoin($rootAlias.'.GranitObject obj')
+    	 ->where('obj.sub_cat_id =?',$value);
+    	 return $query;
+    }
+    public static function getProdObjects()
+    {
+    $q = Doctrine_Query::create() 
+		->from('GranitProduction p')
+		->LeftJoin('p.GranitProd_complect pc')
+    	->LeftJoin('pc.GranitComplect cp')
+    	->LeftJoin('p.GranitObject o')
+    	->LeftJoin('o.Photo ph');
+	return $q;	
+    }
 }

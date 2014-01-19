@@ -29,4 +29,18 @@ class GranitSub_catTable extends Doctrine_Table
     	}
     	return false;
     }
+    public static function getProdSubCatSet()
+    {
+    	$q = Doctrine_Query::create()
+				->from('GranitSub_cat s')
+				->where('s.cat_id =?',1)
+    			->execute();
+    	$arr=null;
+    	$arr[]='';
+    	foreach($q as $sub)
+    	{
+    	 $arr[$sub->getId()]=$sub->getName();
+    	}
+    	return $arr;	
+    }
 }

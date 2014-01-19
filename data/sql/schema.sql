@@ -3,6 +3,7 @@ CREATE TABLE granit_complect (id BIGINT AUTO_INCREMENT, name VARCHAR(255), PRIMA
 CREATE TABLE granit_information (id BIGINT AUTO_INCREMENT, obj_id BIGINT NOT NULL, title VARCHAR(255) NOT NULL, shortcart text NOT NULL, icon VARCHAR(255), content text NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, translit VARCHAR(255), UNIQUE INDEX granit_information_translit_idx (translit), INDEX obj_id_idx (obj_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE granit_kontakty (id BIGINT AUTO_INCREMENT, kontakty_cat_id BIGINT NOT NULL, content text NOT NULL, INDEX kontakty_cat_id_idx (kontakty_cat_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE granit_kontakty_cat (id BIGINT AUTO_INCREMENT, name VARCHAR(255), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE granit_koordinates (id BIGINT AUTO_INCREMENT, coordinates VARCHAR(255), text VARCHAR(255), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE granit_metas (id BIGINT AUTO_INCREMENT, obj_id BIGINT NOT NULL, content VARCHAR(255), INDEX obj_id_idx (obj_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE granit_object (id BIGINT AUTO_INCREMENT, sub_cat_id BIGINT NOT NULL, active TINYINT(1) DEFAULT '0' NOT NULL, INDEX sub_cat_id_idx (sub_cat_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE granit_photo (id BIGINT AUTO_INCREMENT, obj_id BIGINT NOT NULL, INDEX obj_id_idx (obj_id), PRIMARY KEY(id)) ENGINE = INNODB;

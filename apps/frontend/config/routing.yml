@@ -4,6 +4,7 @@
 # default rules
 contacts:
   url:	/kontakty
+  class:   sfRoute
   param:	{ module: category, action: kontakty}
   
 object:

@@ -23,16 +23,16 @@ $conn->setListener($profiler);
 ////////////////////////////////////////
 
 
-//$q=Doctrine_Core::getTable('GranitCat')->getCats()->getFirst();
+$q=Doctrine_Core::getTable('GranitProduction')->getProdObjects()->execute()->getFirst();
 	//	$sub_cat=$q->Sub_cat[4];
 		//$res=$sub_cat->getObjects();
-
+print_r($q->getPhotoNum());
 //$asd=(Support::img_resize($src,$dest,530,530))?true:false;
-
+/*
 $src="d:/source/6.jpg";
 $dest=dirname(__FILE__)."/web/images/sample.jpg";
 $icon=dirname(__FILE__)."/web/images/default.jpg";
 Support::img_resize($src,$dest,530,530);
 Support::img_resize($src,$icon,194,194);		
-	
+*/	
 ?>

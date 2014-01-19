@@ -14,8 +14,11 @@ class categoryActions extends sfActions
   {
     if ($request->isXmlHttpRequest())
   	{
-    	$this->kont=Doctrine_Core::getTable('GranitKontaktyCat')->getKontakts()->get(3)->Kontakty->getFirst()->getContent();
-  		return $this->renderText($this->kont);
+    	$this->kont=Doctrine_Core::getTable('GranitKoordinates')->getKoordinates();
+    	$this->arr=array(
+    	'coordinates'=>$this->kont->getCoordinates(),
+    	'text'=>$this->kont->getText());
+  		return $this->renderText(json_encode($this->arr));
   	}
   	$this->cats = Doctrine_Core::getTable('GranitCat')->getCats();
   }
@@ -47,6 +50,7 @@ class categoryActions extends sfActions
   public function executeKontakty(sfWebRequest $request)
   {
   	$this->kont=Doctrine_Core::getTable('GranitKontaktyCat')->getKontakts();
+  	$this->koordinates=Doctrine_Core::getTable('GranitKoordinates');
   }
   
 }

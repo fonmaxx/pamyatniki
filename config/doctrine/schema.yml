@@ -71,7 +71,7 @@ GranitProd_complect:
    complect_id:  { type: integer, notnull: true }
   relations:
    GranitComplect: {  onDelete: CASCADE, local: complect_id, foreign: id }
-   GranitProduction: {  onDelete: CASCADE, local: prod_id, foreign: id,foreignAlias: Complect}
+   GranitProduction: {  onDelete: CASCADE, local: prod_id, foreign: id}
  
 GranitComplect:
   columns:
@@ -87,3 +87,8 @@ GranitKontakty:
    content: { type: text, notnull: true }
   relations:
    GranitKontaktyCat: {  onDelete: CASCADE, local: kontakty_cat_id, foreign: id,foreignAlias: Kontakty}
+   
+GranitKoordinates:
+  columns:
+   coordinates:     { type: string(255) }
+   text:            {type: string(255)}   
